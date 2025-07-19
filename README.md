@@ -1,0 +1,1 @@
+# CROSSENT : Cross Platform Sentiment Analysis Agentic Tool
