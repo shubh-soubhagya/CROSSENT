@@ -79,18 +79,18 @@ Email Body:
 
     return pd.Series([emotion_sentiment, fine_sentiment, thinking])
 
-# ✅ Load Data
-df = pd.read_csv("emails_cleaned.csv")
+# # ✅ Load Data
+# df = pd.read_csv("emails_cleaned.csv")
 
-# ✅ Extract name/email
-df[['src_name', 'src_email']] = df['From'].apply(extract_name_email)
+# # ✅ Extract name/email
+# df[['src_name', 'src_email']] = df['From'].apply(extract_name_email)
 
-# ✅ Clean body
-df['new_body'] = df['Body'].apply(clean_email_body)
+# # ✅ Clean body
+# df['new_body'] = df['Body'].apply(clean_email_body)
 
-# ✅ Sentiment Classification
-df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['new_body'].apply(classify_sentiment)
+# # ✅ Sentiment Classification
+# df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['new_body'].apply(classify_sentiment)
 
-# ✅ Save the final result
-df.to_csv("emails_cleaned.csv", index=False)
-print(f"✅ Completed. Saved {len(df)} emails to emails_cleaned.csv with sentiment analysis.")
+# # ✅ Save the final result
+# df.to_csv("emails_cleaned.csv", index=False)
+# print(f"✅ Completed. Saved {len(df)} emails to emails_cleaned.csv with sentiment analysis.")

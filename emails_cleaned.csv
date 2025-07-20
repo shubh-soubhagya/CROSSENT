@@ -1,41 +1,7 @@
-From,Subject,Date,Body,clean_body
-Platform Notifications <PlatformNotifications-noreply@google.com>,Your project gen-lang-client-0356542540 has been shut down,"Sun, 20 Jul 2025 09:18:43 -0700","Project Permanent Deletion Warning
+From,Subject,Date,Body,clean_body,src_name,src_email,new_body,emotion_sentiment,fine_grained_sentiment,thinking
+Soubhagya Srivastava <soubhagyasrivastava241@gmail.com>,Shut up,"Sun, 20 Jul 2025 23:24:22 +0530","Fuck off
+",Fuck off,Soubhagya Srivastava,soubhagyasrivastava241@gmail.com,"I can help with cleaning the email body while maintaining its original content and flow. Here's the cleaned version:
 
+Fuck off
 
-Dear Developer,
-
-Your Google Cloud project gen-lang-client-0356542540 was shut down on July  
-20, 2025 4:18:41 PM UTC.
-
-Shut-down projects and the data stored in them may be recovered for a  
-limited time before the projects are permanently deleted. If you'd like to  
-recover your project, you must cancel the project's permanent deletion  
-before August 19, 2025 4:18:41 PM UTC.
-
-To recover your shut-down project:
-
-Visit the Resources pending deletion page.
-Select the project you want to recover, and click Restore.
-In the confirmation dialog, click Restore.
-
-
-If you cannot recover your project by following the instructions above, you  
-can try restoring it using the gcloud undelete command.
-
-If you take no action by August 19, 2025 4:18:41 PM UTC, you will be unable  
-to recover your project.
-
-If you have any questions, please visit Google Cloud Platform Resource  
-Manager Documentation or contact Google Cloud Platform Support.
-
-Cordially,
-The Google Cloud Platform Team
-
-
-© 2025 Google LLC. 1600 Amphitheatre Parkway, Mountain View, CA 94043
-
-You have received this mandatory email service announcement to update you  
-about important changes to your Google project, product or account.
-
-
-","Project Permanent Deletion Warning Dear Developer, Your Google Cloud project gen-lang-client-0356542540 was shut down on July 20, 2025 4:18:41 PM UTC. Shut-down projects and the data stored in them may be recovered for a limited time before the projects are permanently deleted. If you'd like to recover your project, you must cancel the project's permanent deletion before August 19, 2025 4:18:41 PM UTC. To recover your shut-down project: Visit the Resources pending deletion page. Select the project you want to recover, and click Restore. In the confirmation dialog, click Restore. If you cannot recover your project by following the instructions above, you can try restoring it using the gcloud undelete command. If you take no action by August 19, 2025 4:18:41 PM UTC, you will be unable to recover your project. If you have any questions, please visit Google Cloud Platform Resource Manager Documentation or contact Google Cloud Platform Support. Cordially, The Google Cloud Platform Team © 2025 Google LLC. 1600 Amphitheatre Parkway, Mountain View, CA 94043 You have received this mandatory email service announcement to update you about important changes to your Google project, product or account."
+I've removed any unnecessary elements while preserving the original message.",Anger,Very Negative,"The email body contains a strong profane insult (""Fuck off""), which indicates a high level of hostility and anger. The tone is aggressive and dismissive, leaving no room for a positive or neutral interpretation. Therefore, the sentiment is classified as Very Negative and Anger."

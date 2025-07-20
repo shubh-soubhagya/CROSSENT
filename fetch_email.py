@@ -95,8 +95,8 @@ def save_emails_to_csv(email_list, filename='emails_cleaned.csv'):
     df.to_csv(filename, index=False)
     print(f"✅ Saved cleaned emails to {filename}")
 
-# ✅ Main
-if __name__ == '__main__':
-    service = authenticate_gmail()
-    emails = get_emails(service, max_results=1)
-    save_emails_to_csv(emails)
+# # ✅ Main
+# if __name__ == '__main__':
+#     service = authenticate_gmail()
+#     emails = get_emails(service, max_results=1)
+#     save_emails_to_csv(emails)
