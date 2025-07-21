@@ -1,0 +1,209 @@
+<!-- templates/chat_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Logs Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .sentiment-positive {
+            color: #28a745;
+        }
+        .sentiment-negative {
+            color: #dc3545;
+        }
+        .sentiment-neutral {
+            color: #6c757d;
+        }
+        .chat-log-card {
+            margin-bottom: 1rem;
+            border-left: 4px solid #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 bg-dark text-white p-4">
+                <h2 class="text-center mb-4">Sentiment Analysis</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white btn btn-outline-light" href="{{ url_for('email_dashboard') }}">
+                            <i class="bi bi-envelope me-2"></i>Email Analysis
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white btn btn-outline-light" href="{{ url_for('ticket_dashboard') }}">
+                            <i class="bi bi-ticket-detailed me-2"></i>Ticket Analysis
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white btn btn-outline-light" href="{{ url_for('chat_interface') }}">
+                            <i class="bi bi-chat-dots me-2"></i>Customer Chatbot
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white btn btn-primary" href="{{ url_for('chat_dashboard') }}">
+                            <i class="bi bi-collection me-2"></i>Chat Logs
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white btn btn-outline-light" href="{{ url_for('dashboard') }}">
+                            <i class="bi bi-house me-2"></i>Dashboard Home
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1><i class="bi bi-collection me-2"></i>Chat Logs Analysis</h1>
+                    <button class="btn btn-primary" onclick="window.location.href='{{ url_for('chat_dashboard') }}'">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+                    </button>
+                </div>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Chat Statistics</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <h3>{{ chats|length }}</h3>
+                                        <p class="text-muted">Total Conversations</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3>{{ chats|selectattr('emotion_sentiment', 'equalto', 'positive')|list|length }}</h3>
+                                        <p class="text-muted">Positive</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3>{{ chats|selectattr('emotion_sentiment', 'equalto', 'negative')|list|length }}</h3>
+                                        <p class="text-muted">Negative</p>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h3>{{ chats|selectattr('model_used', 'equalto', 'Groq')|list|length }}</h3>
+                                        <p class="text-muted">Using Groq</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Chat Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>User Input</th>
+                                                <th>Bot Response</th>
+                                                <th>Sentiment</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for chat in chats %}
+                                            <tr>
+                                                <td>{{ chat.timestamp }}</td>
+                                                <td>{{ chat.user_input|truncate(30) }}</td>
+                                                <td>{{ chat.bot_response|truncate(30) }}</td>
+                                                <td>
+                                                    <span class="badge bg-{% if chat.emotion_sentiment == 'positive' %}success{% elif chat.emotion_sentiment == 'negative' %}danger{% else %}secondary{% endif %}">
+                                                        {{ chat.emotion_sentiment }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#chatModal{{ loop.index }}">
+                                                        View
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Modals -->
+                {% for chat in chats %}
+                <div class="modal fade" id="chatModal{{ loop.index }}" tabindex="-1" aria-labelledby="chatModalLabel{{ loop.index }}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="chatModalLabel{{ loop.index }}">Chat Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <h6>Timestamp:</h6>
+                                    <p>{{ chat.timestamp }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>User Input:</h6>
+                                    <div class="card chat-log-card">
+                                        <div class="card-body">
+                                            {{ chat.user_input }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Bot Response:</h6>
+                                    <div class="card chat-log-card">
+                                        <div class="card-body">
+                                            {{ chat.bot_response }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Sentiment Analysis:</h6>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><strong>Emotion:</strong> <span class="sentiment-{{ chat.emotion_sentiment }}">{{ chat.emotion_sentiment }}</span></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p><strong>Fine-grained:</strong> {{ chat.fine_grained_sentiment }}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p><strong>Thinking:</strong> {{ chat.thinking }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Model Used:</h6>
+                                    <p>{{ chat.model_used }}</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

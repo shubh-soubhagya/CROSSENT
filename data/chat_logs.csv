@@ -1,0 +1,2 @@
+timestamp,user_input,bot_response,emotion_sentiment,fine_grained_sentiment,thinking,model_used
+2025-07-21 13:43:47,hi,Hello! Welcome to Groq support. How can I assist you today with your query?,Joy,Very Positive,"The email body is friendly, welcoming, and helpful, indicating a very positive tone. The use of a warm greeting and an offer to assist suggests joy and a positive attitude towards helping the recipient.",Groq

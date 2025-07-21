@@ -75,3 +75,10 @@ df_ticket[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df_tick
 # ✅ Save Final CSV
 df_ticket.to_csv(r"data\github_issues_with_sentiment.csv", index=False)
 print(f"✅ Completed. {len(df_ticket)} issues saved to github_issues_with_sentiments.csv")
+
+########### Chatbot ###############
+
+from chat import CustomerCareChatbot
+chatbot = CustomerCareChatbot()
+chatbot.start_chat()
+
