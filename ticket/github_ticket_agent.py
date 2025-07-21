@@ -57,5 +57,5 @@ df = pd.read_csv("github_issues.csv")
 df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['Description'].apply(classify_sentiment)
 
 # ✅ Save Final CSV
-df.to_csv("github_issues_with_sentiment.csv", index=False)
+df.to_csv(r"data\github_issues_with_sentiment.csv", index=False)
 print(f"✅ Completed. {len(df)} issues saved to github_issues_with_sentiments.csv")

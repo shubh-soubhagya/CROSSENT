@@ -13,9 +13,9 @@ save_emails_to_csv(emails)
 
 ############# EMAIL AGENT #################
 
-df = pd.read_csv("emails_cleaned.csv")
+df = pd.read_csv(r"data\emails_cleaned.csv")
 df[['src_name', 'src_email']] = df['From'].apply(extract_name_email)
 df['new_body'] = df['Body'].apply(clean_email_body)
 df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['new_body'].apply(classify_sentiment)
-df.to_csv("emails_cleaned.csv", index=False)
+df.to_csv(r"data\emails_cleaned.csv", index=False)
 print(f"✅ Completed. Saved {len(df)} emails to emails_cleaned.csv with sentiment analysis.")

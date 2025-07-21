@@ -28,7 +28,7 @@ if response.status_code == 200:
         for issue in issues
     ])
 
-    df.to_csv("github_issues.csv", index=False)
+    df.to_csv(r"data\github_issues.csv", index=False)
     print(f"✅ Saved {len(df)} issues to github_issues.csv")
 else:
     print(f"❌ Failed to fetch issues: {response.status_code} - {response.text}")
