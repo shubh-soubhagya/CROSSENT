@@ -3,6 +3,9 @@ import re
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import sys
+# import fine_grained_sentiments, emotion_based_sentiments
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from sentiments import fine_grained_sentiments, emotion_based_sentiments
 
 # ✅ Load API Key
@@ -50,12 +53,12 @@ Description:
 
     return pd.Series([emotion_sentiment, fine_sentiment, thinking])
 
-# ✅ Load CSV
-df = pd.read_csv("github_issues.csv")
+# # ✅ Load CSV
+# df = pd.read_csv(r"data\github_issues.csv")
 
-# ✅ Apply Sentiment Classification
-df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['Description'].apply(classify_sentiment)
+# # ✅ Apply Sentiment Classification
+# df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['Description'].apply(classify_sentiment)
 
-# ✅ Save Final CSV
-df.to_csv(r"data\github_issues_with_sentiment.csv", index=False)
-print(f"✅ Completed. {len(df)} issues saved to github_issues_with_sentiments.csv")
+# # ✅ Save Final CSV
+# df.to_csv(r"data\github_issues_with_sentiment.csv", index=False)
+# print(f"✅ Completed. {len(df)} issues saved to github_issues_with_sentiments.csv")

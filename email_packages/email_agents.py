@@ -3,6 +3,8 @@ import re
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from sentiments import emotion_based_sentiments, fine_grained_sentiments
 
 # ✅ Load API Key

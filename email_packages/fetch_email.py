@@ -90,7 +90,7 @@ def get_emails(service, max_results=10):
     return email_list
 
 # ✅ Save to CSV
-def save_emails_to_csv(email_list, filename='emails_cleaned.csv'):
+def save_emails_to_csv(email_list, filename=r'data\emails_cleaned.csv'):
     df = pd.DataFrame(email_list)
     df.to_csv(filename, index=False)
     print(f"✅ Saved cleaned emails to {filename}")

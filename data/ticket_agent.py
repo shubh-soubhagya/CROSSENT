@@ -3,7 +3,7 @@ import re
 import os
 from dotenv import load_dotenv
 from groq import Groq
-from sentiments import emotion_based_sentiments, fine_grained_sentiments
+from CROSSENT.sentiments.sentiments import emotion_based_sentiments, fine_grained_sentiments
 
 # ✅ Load API Key
 load_dotenv()
