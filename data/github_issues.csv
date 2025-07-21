@@ -1,160 +1,37 @@
 Issue ID,Title,Description,Created At,State,Issue URL
-3247671454,editor.experimentalEditContextEnabled option cannot be set,"<img width=""1077"" height=""436"" alt=""Image"" src=""https://github.com/user-attachments/assets/7a390a00-4797-4229-9af3-6208515ab1bc"" />
+3249004946,Support for Chain of Thought tokens,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
 
-I noticed that the underline effect of the composition string has reverted to the original, so this feature is likely not enabled by default after stabilization, contrary to what was stated in the 1.94 release notes.
+#### 3.1 Implementation 
+- [ ] Plumb the cot feature through the various layers in core and extension
+  - [ ] Store data in chat history (summary, id, metadata)
+  - [ ] Add cot data to chat debug logs
+  - [x] Get cot data by tool_call when constructing the request messages
+  - [ ] BYOK
+      - [ ] Use thinking data when provider does not use LM APIs (E.g Anthropic)
+      - [ ] Use model specific endpoints to adjust messages  
 
-And it seems that this issue often occurs: when I start typing, the first letter is directly committed to the screen instead of becoming a composing character in the IME. This is a little bit annoying.
+### 4. UI Features
 
-<img width=""1148"" height=""320"" alt=""Image"" src=""https://github.com/user-attachments/assets/6de25478-43da-4045-9883-3a9014446c0d"" />",2025-07-21T08:19:29Z,open,https://github.com/microsoft/vscode/issues/257036
-3247639881,Indicate workspace or remote MCP Server,Indicate workspace or remote MCP Server,2025-07-21T08:07:20Z,open,https://github.com/microsoft/vscode/issues/257034
-3247635535,My to,"<!-- Please search existing issues to avoid creating duplicates -->
-<!-- Please attach logs to help us diagnose your issue -->
-
-- Copilot Chat Extension Version:
-- VS Code Version:
-- OS Version:
-- Feature (e.g. agent/edit/ask mode):
-- Selected model (e.g. GPT 4.1, Claude 3.7 Sonnet):
-- Logs:
-
-Steps to Reproduce:
-
-1.
-2.
-",2025-07-21T08:05:38Z,closed,https://github.com/microsoft/vscode/issues/257033
-3247624653,"No models available, Copilot Pro+","
+#### 4.1 Chat UI Implementation 🎨 
+- [ ] Design UX for displaying thinking data in chat UI
+- [ ] Implement LM API to stream cot information to core
+- [ ] Develop Chat UI API for accessing thinking data
+",2025-07-21T14:56:37Z,open,https://github.com/microsoft/vscode/issues/257104
+3248996201,copilot suppiort for swe models with chain of thought,"- [ ] Design UX for displaying thinking data in chat UI
+- [ ] Implement LM API to stream cot information to core
+- [ ] Develop Chat UI API for accessing thinking data",2025-07-21T14:53:53Z,closed,https://github.com/microsoft/vscode/issues/257103
+3248952732,Erro apos solicitar algumas alterações,"
 Type: <b>Bug</b>
 
-I can't use Copilot anymore, no models show up after the last update
+Desculpe, sua solicitação falhou. Tente novamente. ID da solicitação: ab375834-d8eb-47f9-8360-0dcc0a4b641a
 
-Extension version: 0.30.2025071801
-VS Code version: Code - Insiders 1.103.0-insider (ec0f0be4a71892d46a136811f5a5c160f032f129, 2025-07-21T05:03:52.872Z)
-OS version: Windows_NT x64 10.0.19045
-Modes:
-
-<details><summary>Logs</summary>
-<pre>
-Debug: [LanguageModelAccess] UPDATING language models
-Info: activationBlocker from 'languageModelAccess' took for 1203ms
-Trace: Should request permissive session upgrade: false - already have permissive session
-Debug: CopilotToken state changed, firing event.
-Info: copilot token chat_enabled: true, sku: plus_monthly_subscriber_quota
-Info: GitHub.vscode-pull-request-github extension is not yet activated.
-Info: Registering default platform agent...
-Debug: ConversationFeature: onDidAuthenticationChange has token: true
-Debug: [context keys] Updating context keys.
-Trace: [NES][DiagnosticsInlineCompletionProvider][Import] created
-Trace: [NES][DiagnosticsInlineCompletionProvider][Async] created
-Debug: Finished handling auth change event.
-Info: activationBlocker from 'conversationFeature' took for 1267ms
-Debug: EmbeddingsChunkSearch: initialize found 0 files. Max: [object Promise]
-Trace: y0.initialize#1 started
-Trace: y0.initialize#2 started
-Trace: y0.initialize#1 success. Elapsed 0.35459999999966385
-Trace: y0.initialize#2 success. Elapsed 0.1971000000003187
-Trace: y0.initialize#3 started
-Trace: y0.initialize#3 success. Elapsed 0.2293999999992593
-Info: BYOK: Copilot Chat known models list fetched successfully.
-Info: Fetched model metadata in 789ms 174e7c7d-9b80-4e55-b206-58ee1ad2f4bd
-Debug: Refetch model metadata: Skipped.
-Debug: [LanguageModelAccess] ADDED language model gpt-4.1
-Debug: [LanguageModelAccess] ADDED language model gpt-3.5-turbo
-Debug: [LanguageModelAccess] ADDED language model gpt-4o-mini
-Debug: [LanguageModelAccess] ADDED language model gpt-4
-Debug: [LanguageModelAccess] ADDED language model gpt-4-0125-preview
-Debug: [LanguageModelAccess] ADDED language model gpt-4o
-Debug: [LanguageModelAccess] ADDED language model o3-mini
-Debug: [LanguageModelAccess] ADDED language model claude-3.5-sonnet
-Debug: [LanguageModelAccess] ADDED language model claude-3.7-sonnet
-Debug: [LanguageModelAccess] ADDED language model claude-3.7-sonnet-thought
-Debug: [LanguageModelAccess] ADDED language model claude-sonnet-4
-Debug: [LanguageModelAccess] ADDED language model claude-opus-4
-Debug: [LanguageModelAccess] ADDED language model gemini-2.0-flash-001
-Debug: [LanguageModelAccess] ADDED language model gemini-2.5-pro
-Debug: [LanguageModelAccess] ADDED language model o3
-Debug: [LanguageModelAccess] ADDED language model o4-mini
-Debug: [LanguageModelAccess] DID UPDATE language models
-Debug: [LanguageModelAccess] UPDATING language models
-Debug: [LanguageModelAccess] DID UPDATE language models
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
-Debug: [context keys] Window state change. Needs offline check: false, active: false, focused: false.
-Debug: [context keys] Window state change. Needs offline check: false, active: false, focused: true.
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
-Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
-</pre>
-</details>
-<details><summary>Request IDs</summary>
-<pre>
-
-</pre>
-</details><details>
-<summary>System Info</summary>
-
-|Item|Value|
-|---|---|
-|CPUs|AMD Ryzen 7 5800H with Radeon Graphics          (16 x 3194)|
-|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>vulkan: disabled_off<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
-|Load (avg)|undefined|
-|Memory (System)|15.40GB (2.76GB free)|
-|Process Argv|--crash-reporter-id f5e9a918-f84e-48c1-9aec-42af73457944|
-|Screen Reader|no|
-|VM|0%|
-</details><details>
-<summary>A/B Experiments</summary>
-
-```
-vsliv368:30146709
-pythonvspyt551:31249597
-h48ei257:31000450
-nativeloc1:31118317
-dwcopilot:31158714
-5b1c1929:31184661
-6074i472:31201624
-dwoutputs:31242946
-hdaa2157:31222309
-copilot_t_ci:31333650
-g012b348:31231168
-pythoneinst12:31251391
-c7cif404:31309980
-pythonpulldiag:31287486
-6gi0g917:31259950
-996jf627:31264550
-pythonrdcb7:31268811
-usemplatestapi:31297334
-e6194696:31317039
-747dc170:31275146
-pythonpcpt1cf:31345881
-6518g693:31302842
-generatesymbolt:31280541
-convertfstringf:31280702
-9d2cg352:31346308
-b99bg931:31349649
-usemarketplace:31343026
-0g1h6703:31329154
-nes-emitfast-1:31333560
-replacestringexc:31350595
-testaa123cf:31335227
-6abeh943:31336334
-envsactivate1:31349248
-0927b901:31340060
-editstats-enabled:31346256
-
-```
-
-</details>
-
-<!-- generated by issue reporter -->",2025-07-21T08:01:27Z,open,https://github.com/microsoft/vscode/issues/257032
-3247583317,很抱歉，未返回响应。,"
-Type: <b>Bug</b>
-
-很抱歉，未返回响应。
+Motivo: Request Failed: 400 Bad Request
 
 Extension version: 0.29.1
-VS Code version: Code 1.102.1 (Universal) (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
-OS version: Darwin arm64 24.5.0
+VS Code version: Code 1.102.1 (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
+OS version: Linux x64 6.15.6-200.fc42.x86_64
 Modes:
 
 <details>
@@ -162,20 +39,25 @@ Modes:
 
 |Item|Value|
 |---|---|
-|CPUs|Apple M1 (8 x 2400)|
-|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: enabled_on<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
-|Load (avg)|3, 3, 3|
-|Memory (System)|16.00GB (0.06GB free)|
-|Process Argv|--enable-proposed-api Tencent-Cloud.coding-copilot --crash-reporter-id b3a52193-6a5d-4450-9c4f-d67ae488c67a|
+|CPUs|12th Gen Intel(R) Core(TM) i3-12100T (8 x 3699)|
+|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: disabled_software<br>vulkan: disabled_off<br>webgl: enabled<br>webgl2: enabled<br>webgpu: disabled_off<br>webnn: disabled_off|
+|Load (avg)|2, 2, 2|
+|Memory (System)|15.35GB (4.87GB free)|
+|Process Argv|--crash-reporter-id 528393db-24d7-40d5-b986-f807f802aa99|
 |Screen Reader|no|
 |VM|0%|
+|DESKTOP_SESSION|plasma|
+|XDG_CURRENT_DESKTOP|KDE|
+|XDG_SESSION_DESKTOP|KDE|
+|XDG_SESSION_TYPE|wayland|
 </details><details>
 <summary>A/B Experiments</summary>
 
 ```
-vsliv368:30146709
+vsliv368cf:30146710
+pythonvspyt551:31249599
 binariesv615:30325510
-962ge761:31350689
+0bi6i642:31350688
 h48ei257:31000450
 nativeloc1:31344060
 5fd0e150:31155592
@@ -193,39 +75,260 @@ pythonrdcb7:31342333
 usemplatestapi:31297334
 0aa6g176:31307128
 747dc170:31275177
-6518g693:31334701
 aj953862:31281341
 generatesymbolt:31295002
 convertfstringf:31295003
-pylancequickfixt:31350061
+pylancequickfixf:31350060
 9d2cg352:31346308
 usemarketplace:31343026
 nesew2to5:31336538
-agentclaude:31350861
+agentclaude:31350858
+b6b4d950:31327385
 nes-diff-11:31337487
 replacestringexc:31350595
+nes-set-on:31350020
+onetestforazureexp:31335613
 6abeh943:31336334
-yijiwantestdri0626-c:31336931
+yijiwantestdri0626-t:31336930
 0927b901:31350571
-f76d9909:31348711
-7g84e740:31350607
+4gdec884:31348710
+nes-deb-01:31346714
+0cj2b977:31350606
 1c1c4419-mono:31350621
 
 ```
 
 </details>
 
-<!-- generated by issue reporter -->",2025-07-21T07:45:18Z,open,https://github.com/microsoft/vscode/issues/257029
-3247577677,"Sorry, No response was returned","
+<!-- generated by issue reporter -->",2025-07-21T14:42:58Z,closed,https://github.com/microsoft/vscode/issues/257102
+3248940051,copilot unutma hatırlamama,"
 Type: <b>Bug</b>
 
-Just ask anything in the chat. 
+Copilot. Bana gönderdiği terminal komutu yanlış. Bana gönderdiği komut satırı ""cd c:\CryptoTrackPro\frontend && npm start"" bu şekilde. Her 10 dk da bir copilot a windows kullandığımı ve powershell uyumlu komut satırı göndermesi gerektiğini hatırlatıyorum.
+ayrıca varsayım ile çok fazla işlem yapıyor.
 
-This is repeating multiple times
+Extension version: 0.29.1
+VS Code version: Code 1.102.1 (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
+OS version: Windows_NT x64 10.0.19045
+Modes:
 
-2025-07-21 11:39:38.502 [error] Error parsing JSON stream data for request id 4936ae49-b606-4d93-bbf1-cc300abf827f:Internal Server Error
-2025-07-21 11:39:38.502 [info] request done: requestId: [4936ae49-b606-4d93-bbf1-cc300abf827f] model deployment ID: []
-2025-07-21 11:39:38.503 [info] ccreq:357cc1f1.copilotmd | unknown | claude-sonnet-4 | 1026ms | [panel/unknown]
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|AMD FX(tm)-8150 Eight-Core Processor            (8 x 3600)|
+|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>vulkan: disabled_off<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|15.97GB (4.88GB free)|
+|Process Argv|--crash-reporter-id 896d9851-0b1f-4a4c-b294-07fb2a34c6ff|
+|Screen Reader|no|
+|VM|0%|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368cf:30146710
+binariesv615:30325510
+0bi6i642:31350688
+h48ei257:31000450
+nativeloc1:31344060
+5fd0e150:31155592
+dwcopilot:31170013
+6074i472:31201624
+dwoutputs:31242946
+9064b325:31222308
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythoneinst12:31285622
+c7cif404:31314491
+pythonpulldiag:31343502
+996jf627:31283433
+pythonrdcb7:31342333
+usemplatestapi:31297334
+0aa6g176:31307128
+747dc170:31275177
+aj953862:31281341
+generatesymbolt:31295002
+convertfstringf:31295003
+9d2cg352:31346308
+usemarketplace:31343026
+nesew2to5:31336538
+agentclaude:31350858
+nes-diff-11:31337487
+replacestringexc:31350595
+nes-set-on:31350020
+6abeh943:31336334
+yijiwantestdri0626-t:31336930
+0927b901:31350571
+ji9b5146:31348712
+7g84e740:31350607
+a02b4192-color:31350622
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",2025-07-21T14:39:49Z,open,https://github.com/microsoft/vscode/issues/257101
+3248930285,move run in task tool to core,This will likely fix issues like https://github.com/microsoft/vscode-copilot-issues/issues/98 and https://github.com/microsoft/vscode/issues/256555,2025-07-21T14:37:07Z,open,https://github.com/microsoft/vscode/issues/257100
+3248921240,🚨 CRITICAL FEEDBACK FOR GITHUB COPILOT DEVELOPMENT TEAM,"# 🚨 CRITICAL FEEDBACK FOR GITHUB COPILOT DEVELOPMENT TEAM
+
+**Date**: 2025-07-21  
+**Context**: Real-world Agent Desk backup singularity operations  
+**Severity**: HIGH - Productivity and reliability issues  
+
+## 📋 EXECUTIVE SUMMARY
+
+During intensive backup recovery operations, multiple **critical workflow issues** were discovered that significantly impact developer productivity and system reliability.
+
+---
+
+## 🔥 CRITICAL ISSUES IDENTIFIED
+
+### 1. **MULTI-LINE PYTHON EXECUTION BLOCKING**
+**Issue**: `python3 -c ""multi-line script""` commands freeze terminal indefinitely
+**Impact**: Developer workflow completely blocked
+**Frequency**: 100% reproducible with scripts >50 lines
+**Root Cause**: Quote handling and terminal state management
+
+```bash
+# THIS BLOCKS INDEFINITELY:
+python3 -c ""
+import os
+# ... many lines ...
+print('done')
+""
+
+# WORKAROUND REQUIRED:
+# Create separate .py file first, then execute
+```
+
+### 2. **HERE-DOC (EOF) TERMINAL FREEZE**
+**Issue**: `cat > file << 'EOF'` commands hang terminal waiting for EOF
+**Impact**: Forces manual terminal restart, loses context
+**Solution**: User must manually kill terminal and restart
+
+```bash
+# THIS HANGS:
+cat > script.py << 'EOF'
+#!/usr/bin/env python3
+print(""hello"")
+EOF
+
+# Terminal stays in > prompt indefinitely
+```
+
+### 3. **MISSING DRY-RUN BEST PRACTICE ENFORCEMENT**
+**Issue**: No built-in dry-run validation for script execution
+**Impact**: Production data risk, failed operations
+**Recommendation**: **ALWAYS suggest --dry-run for new scripts**
+
+### 4. **INFINITE LOOP VULNERABILITY**
+
+### 5. **TERMINAL CONTEXT LOSS ON INTERRUPTION** 🆕
+**Issue**: When interrupting blocked commands, new terminal opens in WRONG directory
+**Impact**: Loses working directory context, subsequent commands fail
+**Frequency**: 100% reproducible when canceling blocked commands
+**Root Cause**: Terminal restart doesn't preserve current working directory
+
+```bash
+# SCENARIO:
+# 1. Working in: /DevSec/Backup/Singolarity/21-07-25
+# 2. Command blocks (e.g., HERE-DOC or multiline Python)
+# 3. User cancels command
+# 4. New terminal opens in: ~/.agent-desk (workspace root)
+# 5. Next commands fail: ""file not found""
+```
+
+**Critical Impact**: Makes recovery from blocked commands WORSE - not only do you lose the command, but you lose your place in the filesystem!
+**Issue**: Scripts can enter infinite loops consuming system resources
+**Impact**: 60%+ system quota consumption, forced termination
+**Need**: Automatic timeout and resource monitoring
+
+---
+
+## 💡 PROVEN WORKAROUNDS
+
+### ✅ **WORKING METHODS:**
+1. **Separate Script Files**: Create `.py` files first, then execute
+2. **Dry-Run First**: Always test with `--dry-run` flag
+3. **Progress Limits**: Limit output (e.g., `head -20`)
+4. **Simple Commands**: Use basic shell commands instead of complex inline scripts
+
+### ❌ **AVOID THESE:**
+1. Multi-line `python3 -c` commands
+2. HERE-DOC syntax with `<<`
+3. Direct script execution without testing
+4. Unlimited output commands
+
+---
+
+## 🎯 RECOMMENDATIONS FOR MICROSOFT TEAM
+
+### **IMMEDIATE FIXES NEEDED:**
+1. **Terminal State Management**: Fix quote handling in multi-line commands
+2. **EOF Handling**: Proper HERE-DOC termination detection
+3. **Resource Monitoring**: Auto-timeout for long-running commands
+4. **Dry-Run Integration**: Built-in `--dry-run` suggestion system
+
+### **FEATURE REQUESTS:**
+1. **Script Validation**: Pre-execution syntax checking
+2. **Progress Indicators**: Show command execution status
+3. **Resource Limits**: Automatic quota protection
+4. **Recovery Tools**: Quick terminal unfreeze commands
+
+---
+
+## 📊 PRODUCTIVITY IMPACT
+
+- **Time Lost: ~50% due to terminal freezes, context loss, and restarts due to terminal freezes and restarts
+- **Success Rate**: Improved from 20% to 95% using workarounds
+- **User Experience**: Significantly better with separate script files
+- **Risk Reduction**: 100% with mandatory dry-run approach
+
+---
+
+## 🚀 SUCCESS STORY
+
+**What Worked**: Following this exact pattern:
+1. Create script as separate file
+2. Test with `--dry-run`
+3. Execute when validated
+4. Use progress limits
+
+**Result**: Successfully processed 326 file singularities with 465 files (4.6MB) with **ZERO errors** using the workaround methodology.
+
+---
+
+## 🎯 ACTION ITEMS FOR MICROSOFT
+
+### **Priority 1 (Critical)**
+- [ ] Fix multi-line Python execution blocking
+- [ ] Fix HERE-DOC terminal freezing
+- [ ] Implement automatic timeouts
+
+### **Priority 2 (Important)**  
+- [ ] Add dry-run suggestion system
+- [ ] Improve terminal state recovery
+- [ ] Add resource monitoring
+
+### **Priority 3 (Enhancement)**
+- [ ] Built-in script validation
+- [ ] Progress indicators
+- [ ] Auto-recovery tools
+
+---
+
+**Contact**: GitHub Copilot User Feedback  
+**Environment**: Linux, VS Code, Agent Desk v0.8.4  
+**Use Case**: Production backup recovery operations  
+
+**Bottom Line**: Current limitations force workarounds that are MORE reliable than intended functionality. This suggests fundamental architecture issues that need addressing.",2025-07-21T14:34:18Z,open,https://github.com/microsoft/vscode/issues/257099
+3248905632,The chat doesn't respond.,"
+Type: <b>Bug</b>
+
+Chat doesn't works. I ask it but always return (in spanish): No se devolvió ninguna respuesta.
+""No response was returned."" the translation
 
 Extension version: 0.29.1
 VS Code version: Code 1.102.1 (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
@@ -237,11 +340,11 @@ Modes:
 
 |Item|Value|
 |---|---|
-|CPUs|11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (8 x 2419)|
+|CPUs|11th Gen Intel(R) Core(TM) i5-1145G7 @ 2.60GHz (8 x 1498)|
 |GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>vulkan: disabled_off<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
 |Load (avg)|undefined|
-|Memory (System)|15.73GB (4.56GB free)|
-|Process Argv|--crash-reporter-id 075c0021-5d3c-4e2d-aea4-d91617902f77|
+|Memory (System)|15.39GB (6.51GB free)|
+|Process Argv|--crash-reporter-id 4f52c3d3-beeb-4a38-b300-17be6d45f764|
 |Screen Reader|no|
 |VM|0%|
 </details><details>
@@ -249,9 +352,8 @@ Modes:
 
 ```
 vsliv368cf:30146710
-vswsl492cf:30256860
 binariesv615:30325510
-0bi6i642:31350688
+962ge761:31350689
 2e7ec940:31000449
 nativeloc1:31344060
 5fd0e150:31155592
@@ -274,37 +376,34 @@ generatesymbolt:31295002
 convertfstringf:31295003
 pylancequickfixf:31350060
 9d2cg352:31346308
-convertlamdaf:31350062
 usemarketplace:31343026
 nesew2to5:31336538
 agentclaude:31350858
-82j33506:31327384
+4f60g487:31327383
 nes-diff-11:31337487
 replacestringexc:31350595
-nes-set-on:31350020
-testaa123:31335226
-onetestforazureexp:31335613
-6abeh943:31336334
-yijiwantestdri0626-t:31336930
+63221493:31336333
+yijiwantestdri0626-c:31336931
 0927b901:31350571
-4gdec884:31348710
-nes-deb-005:31346717
-7g84e740:31350607
-1c1c4419-mono:31350621
+ji9b5146:31348712
+8gib2676:31349286
+0cj2b977:31350606
+a02b4192-color:31350622
 
 ```
 
 </details>
 
-<!-- generated by issue reporter -->",2025-07-21T07:43:27Z,closed,https://github.com/microsoft/vscode/issues/257028
-3247575247,很抱歉，未返回响应。,"
+<!-- generated by issue reporter -->",2025-07-21T14:29:46Z,closed,https://github.com/microsoft/vscode/issues/257098
+3248892025,Resonse was filtered,"
 Type: <b>Bug</b>
 
-一直反馈 很抱歉，未返回响应。
+I keep getting this message.
+""Sorry, the response was filtered by the Responsible AI Service. Please rephrase your prompt and try again. Learn more.""
 
 Extension version: 0.29.1
 VS Code version: Code 1.102.1 (Universal) (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
-OS version: Darwin arm64 24.5.0
+OS version: Darwin arm64 24.2.0
 Modes:
 
 <details>
@@ -312,11 +411,11 @@ Modes:
 
 |Item|Value|
 |---|---|
-|CPUs|Apple M1 (8 x 2400)|
+|CPUs|Apple M1 Pro (10 x 2400)|
 |GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: enabled_on<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
-|Load (avg)|3, 3, 3|
-|Memory (System)|16.00GB (0.10GB free)|
-|Process Argv|--enable-proposed-api Tencent-Cloud.coding-copilot --crash-reporter-id b3a52193-6a5d-4450-9c4f-d67ae488c67a|
+|Load (avg)|6, 5, 6|
+|Memory (System)|32.00GB (0.47GB free)|
+|Process Argv|--crash-reporter-id 7b19776e-8863-437d-a9f0-faac62361987|
 |Screen Reader|no|
 |VM|0%|
 </details><details>
@@ -324,8 +423,9 @@ Modes:
 
 ```
 vsliv368:30146709
+vswsl492:30256859
 binariesv615:30325510
-962ge761:31350689
+0bi6i642:31350688
 h48ei257:31000450
 nativeloc1:31344060
 5fd0e150:31155592
@@ -351,18 +451,97 @@ pylancequickfixt:31350061
 9d2cg352:31346308
 usemarketplace:31343026
 nesew2to5:31336538
+agentclaude:31350858
+nes-diff-11:31337487
+replacestringexc:31350595
+nes-set-on:31350020
+6abeh943:31336334
+yijiwantestdri0626-t:31336930
+0927b901:31350571
+f76d9909:31348711
+05h3e699-none:31350620
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",2025-07-21T14:25:54Z,closed,https://github.com/microsoft/vscode/issues/257097
+3248869845,"file not being chnaged , just showing that i have changed in this file, in agent mode","
+Type: <b>Bug</b>
+
+when i wanted to it modify some code in my comp, in agent mode,
+it is iterating and showing that i have made these chnages but actually there is no change in files
+
+Extension version: 0.29.1
+VS Code version: Code 1.102.1 (7adae6a56e34cb64d08899664b814cf620465925, 2025-07-15T16:41:17.147Z)
+OS version: Linux x64 6.8.0-64-generic
+Modes:
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (8 x 2302)|
+|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: disabled_software<br>vulkan: disabled_off<br>webgl: enabled<br>webgl2: enabled<br>webgpu: disabled_off<br>webnn: disabled_off|
+|Load (avg)|2, 2, 2|
+|Memory (System)|31.12GB (22.22GB free)|
+|Process Argv|--crash-reporter-id 83138c60-d59e-43de-9aca-f48a03a4a83a|
+|Screen Reader|no|
+|VM|0%|
+|DESKTOP_SESSION|ubuntu|
+|XDG_CURRENT_DESKTOP|Unity|
+|XDG_SESSION_DESKTOP|ubuntu|
+|XDG_SESSION_TYPE|wayland|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+pythonvspyt551cf:31249601
+binariesv615:30325510
+0bi6i642:31350688
+h48ei257:31000450
+nativeloc1:31344060
+5fd0e150:31155592
+dwcopilot:31170013
+6074i472:31201624
+dwoutputs:31242946
+9064b325:31222308
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythoneinst12:31285622
+c7cif404:31314491
+pythonpulldiag:31343502
+996jf627:31283433
+pythonrdcb7:31342333
+usemplatestapi:31297334
+0aa6g176:31307128
+747dc170:31275177
+aj953862:31281341
+generatesymbolt:31295002
+convertfstringf:31295003
+9d2cg352:31346308
+convertlamdat:31350063
+usemarketplace:31343026
+nesew2to5:31336538
 agentclaude:31350861
+82j33506:31327384
 nes-diff-11:31337487
 replacestringexc:31350595
 6abeh943:31336334
 yijiwantestdri0626-c:31336931
 0927b901:31350571
 f76d9909:31348711
-7g84e740:31350607
-1c1c4419-mono:31350621
+nes-deb-10:31346713
+0cj2b977:31350606
+a02b4192-color:31350622
 
 ```
 
 </details>
 
-<!-- generated by issue reporter -->",2025-07-21T07:42:28Z,open,https://github.com/microsoft/vscode/issues/257027
+<!-- generated by issue reporter -->",2025-07-21T14:20:27Z,open,https://github.com/microsoft/vscode/issues/257096
+3248843305,"When chat response contains diff marking, diff sounds play","From @jooyoungseo
+
+",2025-07-21T14:13:38Z,open,https://github.com/microsoft/vscode/issues/257095

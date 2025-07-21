@@ -1,28 +1,3 @@
-############# TICKET SENTIMENT SEGMENTATION ################
-
-from email_packages.fetch_email import authenticate_gmail, get_emails, save_emails_to_csv
-from email_packages.email_agents import extract_name_email, clean_email_body, classify_sentiment
-import pandas as pd
-
-####### FETCH EMAIL ################
-
-service = authenticate_gmail()
-emails = get_emails(service, max_results=1)
-save_emails_to_csv(emails)
-
-############# EMAIL AGENT #################
-
-df = pd.read_csv(r"data\emails_cleaned.csv")
-df[['src_name', 'src_email']] = df['From'].apply(extract_name_email)
-df['new_body'] = df['Body'].apply(clean_email_body)
-df[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df['new_body'].apply(classify_sentiment)
-df.to_csv(r"data\emails_cleaned.csv", index=False)
-print(f"✅ Completed. Saved {len(df)} emails to emails_cleaned.csv with sentiment analysis.")
-
-from email_app import run_email_pipeline
-
-run_email_pipeline()
-
 ############### TICKET SYSTEM ###############
 
 import requests
@@ -75,10 +50,3 @@ df_ticket[['emotion_sentiment', 'fine_grained_sentiment', 'thinking']] = df_tick
 # ✅ Save Final CSV
 df_ticket.to_csv(r"data\github_issues_with_sentiment.csv", index=False)
 print(f"✅ Completed. {len(df_ticket)} issues saved to github_issues_with_sentiments.csv")
-
-########### Chatbot ###############
-
-from chat import CustomerCareChatbot
-chatbot = CustomerCareChatbot()
-chatbot.start_chat()
-
