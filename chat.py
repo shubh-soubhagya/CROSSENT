@@ -8,7 +8,7 @@ from groq import Groq
 
 # Load environment variables
 load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = os.getenv("GROQ_API_KEY_2")
 client = Groq(api_key=groq_api_key)
 
 # Sentiment categories (matches your existing implementation)
