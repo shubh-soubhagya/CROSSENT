@@ -1,17 +1,5 @@
 timestamp,user_input,bot_response,emotion_sentiment,fine_grained_sentiment,thinking,model_used
-2025-07-21 13:16:09,how to resolve website errors,"I'm happy to help you resolve the website errors you're experiencing. Here are some general troubleshooting steps you can try:
-
-1. **Refresh the page**: Sometimes, a simple refresh can resolve the issue. Try pressing the F5 key or clicking the refresh button on your browser.
-2. **Check your internet connection**: Ensure that your internet connection is stable and working properly. Try restarting your router or modem if you're experiencing connectivity issues.
-3. **Clear browser cache and cookies**: Clearing your browser's cache and cookies can help resolve issues related to outdated or corrupted data. You can usually do this by pressing Ctrl+Shift+R (Windows) or Command+Shift+R (Mac) or by going to your browser's settings and deleting browsing data.
-4. **Check for website maintenance**: It's possible that the website is undergoing maintenance or updates, which may be causing the errors. You can try checking the website's social media or contact pages to see if they have announced any scheduled maintenance.
-5. **Try a different browser**: If the issue persists, try accessing the website using a different browser to see if the problem is browser-specific.
-6. **Disable extensions or add-ons**: Some browser extensions or add-ons may be interfering with the website. Try disabling them one by one to see if that resolves the issue.
-
-If none of these steps resolve the issue, please provide more details about the errors you're experiencing, such as:
-
-* The exact error message you're seeing
-* The URL of the webpage you're trying to access
-* Your browser and operating system
-
-This will help me provide more tailored assistance to resolve the issue.",Anticipation,Neutral,"The message is a question seeking help or solutions, which indicates a neutral sentiment. The emotion is anticipation as the user is looking for a resolution to their issue.",compound-beta-mini
+2025-07-21 13:52:56,Hi,Hello! Welcome to Groq support. How can I assist you today with your query?,Trust,Neutral,"The message ""Hi"" is a simple greeting, indicating no strong emotions but a sense of familiarity or friendliness, which aligns with trust. There is no clear positive or negative tone, hence neutral sentiment.",compound-beta-mini
+2025-07-21 13:53:23,I have some problem in fixing it help me with my current main,"I'd be happy to assist you with fixing your current issue, please provide more details.",Sadness,Negative,"The message expresses a problem and a need for help, indicating a negative situation and a feeling of distress or sadness.",compound-beta-mini
+2025-07-21 13:53:37,fetch the details,"I'm processing your request, please hold for a moment while I fetch the required details.",Anticipation,Neutral,"The message ""fetch the details"" is a neutral and straightforward request, indicating a sense of anticipation or expectation for the information to be retrieved. There is no emotional tone or sentiment expressed, just a simple action request.",compound-beta-mini
+2025-07-21 13:53:45,okay,Thank you for reaching out. How can I assist you today with a concern?,Neutral,Neutral,"The message ""okay"" is a simple acknowledgement with no emotional tone, indicating a neutral sentiment.",compound-beta-mini
