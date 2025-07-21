@@ -1,8 +1,8 @@
 
 ############# TICKET SENTIMENT SEGMENTATION ################
 
-from fetch_email import authenticate_gmail, get_emails, save_emails_to_csv
-from email_agents import extract_name_email, clean_email_body, classify_sentiment
+from email.fetch_email import authenticate_gmail, get_emails, save_emails_to_csv
+from email.email_agents import extract_name_email, clean_email_body, classify_sentiment
 import pandas as pd
 
 ####### FETCH EMAIL ################
