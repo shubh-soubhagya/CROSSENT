@@ -1,0 +1,2 @@
+timestamp,user_input,bot_response,emotion_sentiment,fine_grained_sentiment,thinking,model_used
+2025-07-21 13:15:22,motorfucker,I understand that you may have entered that term by mistake or it could be a form of frustration. I'm here to assist you with any questions or concerns you have. Could you please rephrase or provide more context so I can better understand and help you?,Anger,Very Negative,"The message contains a highly offensive and aggressive term, indicating a strong negative sentiment and an emotion of anger.",compound-beta-mini
