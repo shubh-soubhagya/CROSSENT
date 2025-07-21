@@ -72,7 +72,7 @@ Message: {text}
         prompt = f"""
 You are a customer care assistant.
 Last user message: {user_input}
-Respond helpfully and professionally.
+Respond helpfully and professionally in 15 words only.
 """
         response = client.chat.completions.create(
             model=self.model,
